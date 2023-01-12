@@ -10,6 +10,7 @@ import { ThemeProvider } from "styled-components";
 import { NavigationContainer } from "@react-navigation/native";
 import theme from "@theme/index";
 import { Loading } from "@components/Loading";
+import { AppRoutes } from "@routes/app.routes";
 export default function App() {
   const [fontsLoaded] = useFonts({
     Roboto_400Regular,
@@ -23,6 +24,7 @@ export default function App() {
           backgroundColor="transparent"
           translucent
         />
+        {fontsLoaded ? <AppRoutes /> : <Loading />}
       </ThemeProvider>
     </NavigationContainer>
   );

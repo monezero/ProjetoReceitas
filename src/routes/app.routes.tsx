@@ -6,16 +6,17 @@ import {
 } from "@react-navigation/bottom-tabs";
 import { Colors } from "react-native/Libraries/NewAppScreen";
 import { useTheme } from "styled-components";
-import { Platform } from "react-native";
+import { Platform, View } from "react-native";
 import { Recipes } from "@screens/Recipes";
 import { Entypo } from "@expo/vector-icons";
+import { Favorites } from "@screens/Favorites";
 
 type AppRoutes = {
-  recipes: undefined;
-  favorite: undefined;
-  shoplist: undefined;
-  pantry: undefined;
-  profile: undefined;
+  Recipes: undefined;
+  Favorites: undefined;
+  Shoplist: undefined;
+  Pantry: undefined;
+  Profile: undefined;
 };
 
 export type AppNavigatorRoutesProps = BottomTabNavigationProp<AppRoutes>;
@@ -28,26 +29,87 @@ export function AppRoutes() {
     <Navigator
       screenOptions={{
         headerShown: false,
-        tabBarShowLabel: false,
-        tabBarActiveTintColor: COLORS.GREEN,
-        tabBarInactiveTintColor: COLORS.GRAY,
-
+        tabBarLabelPosition: "below-icon",
+        tabBarLabelStyle: {
+          fontFamily: "Roboto_700Bold",
+          color: "#000",
+          marginBottom: 6,
+        },
         tabBarStyle: {
+          position: "absolute",
           backgroundColor: COLORS.WHITE,
           borderTopWidth: 0,
-          height: Platform.OS === "android" ? "auto" : 96,
-          paddingBottom: 10,
-          paddingTop: 8,
+          bottom: 14,
+          borderRadius: 20,
+          height: 60,
+          right: 14,
+          left: 14,
         },
       }}
     >
       <Screen
-        name="recipes"
+        name="Recipes"
         component={Recipes}
         options={{
-          tabBarIcon: ({ focused, color, size }) => (
-            <Entypo name="text-document" size={24} color="black" />
-          ),
+          tabBarIcon: ({ focused, color, size }) => {
+            if (focused) {
+              return <Entypo name="text-document" size={24} color="#2dc268" />;
+            }
+
+            return <Entypo name="text-document" size={24} color="#afb0b2" />;
+          },
+        }}
+      />
+      <Screen
+        name="Favorites"
+        component={Recipes}
+        options={{
+          tabBarIcon: ({ focused, color, size }) => {
+            if (focused) {
+              return <Entypo name="heart" size={24} color="#2dc268" />;
+            }
+
+            return <Entypo name="heart" size={24} color="#afb0b2" />;
+          },
+        }}
+      />
+      <Screen
+        name="Shoplist"
+        component={Recipes}
+        options={{
+          tabBarIcon: ({ focused, color, size }) => {
+            if (focused) {
+              return <Entypo name="shopping-cart" size={24} color="#2dc268" />;
+            }
+
+            return <Entypo name="shopping-cart" size={24} color="#afb0b2" />;
+          },
+        }}
+      />
+      <Screen
+        name="Pantry"
+        component={Recipes}
+        options={{
+          tabBarIcon: ({ focused, color, size }) => {
+            if (focused) {
+              return <Entypo name="drink" size={24} color="#2dc268" />;
+            }
+
+            return <Entypo name="drink" size={24} color="#afb0b2" />;
+          },
+        }}
+      />
+      <Screen
+        name="Profile"
+        component={Recipes}
+        options={{
+          tabBarIcon: ({ focused, color, size }) => {
+            if (focused) {
+              return <Entypo name="user" size={24} color="#2dc268" />;
+            }
+
+            return <Entypo name="user" size={24} color="#afb0b2" />;
+          },
         }}
       />
     </Navigator>
