@@ -28,6 +28,9 @@
       "@fonts/*":[
         "./src/fonts/*"
       ],
+      "@data/*":[
+        "./src/data/*"
+      ]
     }
   }
 }

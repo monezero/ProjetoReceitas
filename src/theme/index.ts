@@ -5,6 +5,7 @@ export default {
     GRAY: "#afb0b2",
     BLACK: "#000000",
     GREEN: "#2dc268",
+    GREEN_DARK: "#1c733e",
     RED_DARK: "#8B0000"
   },
   FONT_FAMILY: {
