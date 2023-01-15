@@ -15,9 +15,9 @@ export function Recipes() {
       ></SearchBar>
       <FlatlistRecipes />
       <Row>
-        <Button title={"Cook now"} />
-        <Button title={"Breakfast"} />
-        <Button title={"Low Price"} />
+        <Button title={"Café da manhã"} />
+        <Button title={"Refrescos"} />
+        <Button title={"Barato"} />
       </Row>
     </View>
   );

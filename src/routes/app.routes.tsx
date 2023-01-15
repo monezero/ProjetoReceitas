@@ -12,11 +12,11 @@ import { Entypo } from "@expo/vector-icons";
 import { Favorites } from "@screens/Favorites";
 
 type AppRoutes = {
-  Recipes: undefined;
-  Favorites: undefined;
-  Shoplist: undefined;
-  Pantry: undefined;
-  Profile: undefined;
+  Receitas: undefined;
+  Favoritos: undefined;
+  Lista: undefined;
+  Deposito: undefined;
+  Perfil: undefined;
 };
 
 export type AppNavigatorRoutesProps = BottomTabNavigationProp<AppRoutes>;
@@ -49,7 +49,7 @@ export function AppRoutes() {
       }}
     >
       <Screen
-        name="Recipes"
+        name="Receitas"
         component={Recipes}
         options={{
           tabBarIcon: ({ focused, color, size }) => {
@@ -62,7 +62,7 @@ export function AppRoutes() {
         }}
       />
       <Screen
-        name="Favorites"
+        name="Favoritos"
         component={Recipes}
         options={{
           tabBarIcon: ({ focused, color, size }) => {
@@ -75,7 +75,7 @@ export function AppRoutes() {
         }}
       />
       <Screen
-        name="Shoplist"
+        name="Lista"
         component={Recipes}
         options={{
           tabBarIcon: ({ focused, color, size }) => {
@@ -88,7 +88,7 @@ export function AppRoutes() {
         }}
       />
       <Screen
-        name="Pantry"
+        name="Deposito"
         component={Recipes}
         options={{
           tabBarIcon: ({ focused, color, size }) => {
@@ -101,7 +101,7 @@ export function AppRoutes() {
         }}
       />
       <Screen
-        name="Profile"
+        name="Perfil"
         component={Recipes}
         options={{
           tabBarIcon: ({ focused, color, size }) => {

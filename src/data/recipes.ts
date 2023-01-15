@@ -8,12 +8,21 @@ export interface Recipes {
 
 const burger = require("@assets/burger.png");
 const potato = require("@assets/potato.png");
-const omelette = require("@assets/omelette.png");
+const omelette = require("@assets/omelette.png")
+const bacon_and_egss = require("@assets/bacon_and_eggs.png");
+const mac_cheese = require("@assets/mac_cheese.png");
+const milkshake_chocolate = require("@assets/milkshake_chocolate.png");
+const pancake = require("@assets/pancake.png");
+const pao_de_queijo = require("@assets/pao_de_queijo.png");
+const salad = require("@assets/salad.png");
+const vitamina_morango = require("@assets/vitamina_morango.png");
+
+
 
 
 export const RecipeList: Recipes[] = [
   {
-    name: "Hambúrguer  3 carnes",
+    name: "Hambúrguer 3 carnes",
     image: burger,
     description:
       "O hambúrguer caseiro deve ser preparado com uma mistura de carnes. Nesta receita, são usados três cortes de carne: a picanha (mais magra), a fraldinha (mais gordurosa) e a linguiça cababresa fresca. O cominho, o coentro, o sal grosso e a pimenta preta tão um toque ainda mais especial a esse hambúrguer caseiro. Confira!",
@@ -27,6 +36,48 @@ export const RecipeList: Recipes[] = [
   {
     name: "Omelete",
     image: omelette,
+    description:
+      "Você pode rechear seu omelete com presunto e queijo, legumes e o que mais tiver na geladeira. Além do mais, servi-lo acompanhado de salada é uma excelente ideia. A versatilidade do omelete o faz ser boa companhia para um café ou refeição. Bom apetite!",
+  },
+  {
+    name: "Bacon e ovos",
+    image: bacon_and_egss,
+    description:
+      "Você pode rechear seu omelete com presunto e queijo, legumes e o que mais tiver na geladeira. Além do mais, servi-lo acompanhado de salada é uma excelente ideia. A versatilidade do omelete o faz ser boa companhia para um café ou refeição. Bom apetite!",
+  },
+  {
+    name: "Mac n Cheese",
+    image: mac_cheese,
+    description:
+      "Você pode rechear seu omelete com presunto e queijo, legumes e o que mais tiver na geladeira. Além do mais, servi-lo acompanhado de salada é uma excelente ideia. A versatilidade do omelete o faz ser boa companhia para um café ou refeição. Bom apetite!",
+  },
+  {
+    name: "Milkshake de Chocolate",
+    image: milkshake_chocolate,
+    description:
+      "Você pode rechear seu omelete com presunto e queijo, legumes e o que mais tiver na geladeira. Além do mais, servi-lo acompanhado de salada é uma excelente ideia. A versatilidade do omelete o faz ser boa companhia para um café ou refeição. Bom apetite!",
+  },
+  {
+    name: "Panqueca Americana",
+    image: pancake,
+    description:
+      "Você pode rechear seu omelete com presunto e queijo, legumes e o que mais tiver na geladeira. Além do mais, servi-lo acompanhado de salada é uma excelente ideia. A versatilidade do omelete o faz ser boa companhia para um café ou refeição. Bom apetite!",
+  },
+  {
+    name: "Pão de queijo",
+    image: pao_de_queijo,
+    description:
+      "Você pode rechear seu omelete com presunto e queijo, legumes e o que mais tiver na geladeira. Além do mais, servi-lo acompanhado de salada é uma excelente ideia. A versatilidade do omelete o faz ser boa companhia para um café ou refeição. Bom apetite!",
+  },
+  {
+    name: "Salada",
+    image: salad,
+    description:
+      "Você pode rechear seu omelete com presunto e queijo, legumes e o que mais tiver na geladeira. Além do mais, servi-lo acompanhado de salada é uma excelente ideia. A versatilidade do omelete o faz ser boa companhia para um café ou refeição. Bom apetite!",
+  },
+  {
+    name: "Vitamina de morango",
+    image: vitamina_morango,
     description:
       "Você pode rechear seu omelete com presunto e queijo, legumes e o que mais tiver na geladeira. Além do mais, servi-lo acompanhado de salada é uma excelente ideia. A versatilidade do omelete o faz ser boa companhia para um café ou refeição. Bom apetite!",
   },

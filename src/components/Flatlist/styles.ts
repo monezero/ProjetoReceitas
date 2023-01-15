@@ -24,17 +24,25 @@ align-items: center;
 justify-content: center;
 `;
 
-export const Icon = styled.View`
+export const IconHeart = styled.View`
 bottom: 480px;
 right: 100px;
 position: absolute;
 align-items: flex-start;
 `
 
+export const IconMore = styled.View`
+bottom: 480px;
+left: 120px;
+position: absolute;
+align-items: flex-start;
+
+`
+
 
 
 export const Title = styled.Text`
-bottom: 120px;
+bottom: 130px;
 position: absolute;
 font-size: 28px;
 font-family: "Roboto_700Bold";
