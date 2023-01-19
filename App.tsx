@@ -11,6 +11,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import theme from "@theme/index";
 import { Loading } from "@components/Loading";
 import { AppRoutes } from "@routes/app.routes";
+import { AuthRoutes } from "@routes/auth.routes";
 export default function App() {
   const [fontsLoaded] = useFonts({
     Roboto_400Regular,
@@ -24,7 +25,7 @@ export default function App() {
           backgroundColor="transparent"
           translucent
         />
-        {fontsLoaded ? <AppRoutes /> : <Loading />}
+        {fontsLoaded ? <AuthRoutes /> : <Loading />}
       </ThemeProvider>
     </NavigationContainer>
   );

@@ -1,4 +1,10 @@
-import { RecipeList, Recipes } from "@data/recipes";
+import {
+  FilterBreakfast,
+  FilterCheap,
+  FilterRefresher,
+  RecipeList,
+  Recipes,
+} from "@data/recipes";
 import {
   Container,
   Title,
@@ -7,6 +13,14 @@ import {
   TitleContainer,
   IconHeart,
   IconMore,
+  ContainerMore,
+  ImageMore,
+  ContentMore,
+  IconHeartMore,
+  IconBack,
+  TitleContainerMore,
+  TitleMore,
+  Recipe,
 } from "./styles";
 import { useState } from "react";
 import {
@@ -17,22 +31,36 @@ import {
   Modal,
 } from "react-native";
 import { Entypo } from "@expo/vector-icons";
+import {
+  createNavigationContainerRef,
+  useNavigation,
+} from "@react-navigation/native";
+import { AuthNavigatorRouteProps } from "@routes/auth.routes";
 
-export function FlatlistRecipes() {
+interface RecipesProps {
+  data: Recipes[];
+}
+
+export const FlatListRecipes = (props: RecipesProps) => {
   return (
     <FlatList
       horizontal
       showsHorizontalScrollIndicator={false}
       keyExtractor={(item) => item.name}
-      data={RecipeList}
+      data={props.data}
       renderItem={({ item }) => <RecipeVisual {...item} />}
     />
   );
-}
+};
 
-export function RecipeVisual({ name, image, description }: Recipes) {
+export function RecipeVisual({ name, image, description, sort }: Recipes) {
   const [heart, setHeart] = useState(false);
   const [more, setMore] = useState(false);
+  const navigation = useNavigation<AuthNavigatorRouteProps>();
+  function handleRecipes() {
+    navigation.navigate("recipedetails");
+  }
+
   return (
     <Container>
       <Image source={image} />
@@ -49,7 +77,12 @@ export function RecipeVisual({ name, image, description }: Recipes) {
           />
         </IconHeart>
         <IconMore>
-          <Entypo name="chevron-thin-down" size={30} color="white" />
+          <Entypo
+            name="chevron-thin-down"
+            size={30}
+            color="white"
+            onPress={handleRecipes}
+          />
         </IconMore>
         {heart && (
           <IconHeart>

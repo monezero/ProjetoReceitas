@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { TouchableOpacityProps } from "react-native";
 
 import { Container, Title, ButtonTypeStyleProps, Row } from "./styles";
