@@ -1,8 +1,5 @@
 import { ImageProps } from "react-native";
 
-interface RecipesProps {
-  data: Recipes[];
-}
 
 export interface Recipes {
   name: string;

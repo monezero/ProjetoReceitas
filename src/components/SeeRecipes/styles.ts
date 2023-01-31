@@ -56,6 +56,10 @@ z-index: 5;
 `;
 
 export const RecipeContainer = styled.View`
+padding: 2px;
+ border-radius: 18px;
+ border-color: ${theme.COLORS.GREEN};
+ border-width: 5px;
  margin-top: 20px;
  width: ${width * 0.85}px;
  text-align: center;

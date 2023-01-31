@@ -12,6 +12,7 @@ import theme from "@theme/index";
 import { Loading } from "@components/Loading";
 import { AppRoutes } from "@routes/app.routes";
 import { AuthRoutes } from "@routes/auth.routes";
+import { Routes } from "@routes/index";
 export default function App() {
   const [fontsLoaded] = useFonts({
     Roboto_400Regular,
@@ -25,7 +26,7 @@ export default function App() {
           backgroundColor="transparent"
           translucent
         />
-        {fontsLoaded ? <AuthRoutes /> : <Loading />}
+        {fontsLoaded ? <AppRoutes /> : <Loading />}
       </ThemeProvider>
     </NavigationContainer>
   );

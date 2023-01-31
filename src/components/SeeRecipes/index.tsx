@@ -17,26 +17,21 @@ import {
 } from "./styles";
 import { Entypo } from "@expo/vector-icons";
 import { FlatList } from "react-native";
-import { RecipeVisual } from "@components/Flatlist";
+import { RecipesProps, RecipeVisual } from "@components/Flatlist";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Feather } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-
-export function FlatlistRecipesMore() {
-  return (
-    <FlatList
-      horizontal
-      showsHorizontalScrollIndicator={false}
-      keyExtractor={(item) => item.name}
-      data={RecipeList}
-      renderItem={({ item }) => <SeeRecipes {...item} />}
-    />
-  );
-}
+import { useNavigation } from "@react-navigation/native";
+import { AuthNavigatorRouteProps } from "@routes/auth.routes";
 
 export function SeeRecipes({ name, image, description, sort }: Recipes) {
+  const data = RecipeList;
   const [heart, setHeart] = useState(false);
   const [back, setBack] = useState(false);
+  const navigation = useNavigation<AuthNavigatorRouteProps>();
+  function leaveRecipes() {
+    navigation.navigate("Receitas");
+  }
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#f2f2f2" }}>
       <ContainerMore>
@@ -57,7 +52,7 @@ export function SeeRecipes({ name, image, description, sort }: Recipes) {
               name="chevron-thin-left"
               size={30}
               color="white"
-              onPress={() => setBack(true)}
+              onPress={leaveRecipes}
             />
           </IconBack>
           <IconShare>
@@ -77,7 +72,7 @@ export function SeeRecipes({ name, image, description, sort }: Recipes) {
           )}
           {back && <IconHeartMore></IconHeartMore>}
           <TitleStart>
-            <TitleMore>Hambúrguer 3 carnes</TitleMore>
+            <TitleMore>{name}</TitleMore>
             <TitleContainerMore
               colors={["transparent", "#2dc268"]}
               start={{ x: 1, y: 3 }}

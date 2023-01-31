@@ -35,9 +35,9 @@ import {
   createNavigationContainerRef,
   useNavigation,
 } from "@react-navigation/native";
-import { AuthNavigatorRouteProps } from "@routes/auth.routes";
+import { AuthNavigatorRouteProps, AuthRoutes } from "@routes/auth.routes";
 
-interface RecipesProps {
+export interface RecipesProps {
   data: Recipes[];
 }
 
@@ -58,7 +58,7 @@ export function RecipeVisual({ name, image, description, sort }: Recipes) {
   const [more, setMore] = useState(false);
   const navigation = useNavigation<AuthNavigatorRouteProps>();
   function handleRecipes() {
-    navigation.navigate("recipedetails");
+    navigation.navigate("DetalhesReceita");
   }
 
   return (

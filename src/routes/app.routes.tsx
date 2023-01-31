@@ -74,6 +74,7 @@ export function AppRoutes() {
           },
         }}
       />
+
       <Screen
         name="Lista"
         component={Recipes}
