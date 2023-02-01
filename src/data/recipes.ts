@@ -6,6 +6,7 @@ export interface Recipes {
   image: any;
   description: string;
   sort: string;
+  handleNavigate?: () => void;
 }
 const burger = require("@assets/burger.png");
 const potato = require("@assets/potato.png");

@@ -18,7 +18,6 @@ const { Navigator, Screen } = createNativeStackNavigator<AuthRoutes>();
 export function AuthRoutes() {
   return (
     <Navigator screenOptions={{ headerShown: false }}>
-      <Screen name="DetalhesReceita" component={RecipeDetails} />
       <Screen name="Receitas" component={Recipes} />
     </Navigator>
   );

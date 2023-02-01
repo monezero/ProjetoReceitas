@@ -58,7 +58,9 @@ export function RecipeVisual({ name, image, description, sort }: Recipes) {
   const [more, setMore] = useState(false);
   const navigation = useNavigation<AuthNavigatorRouteProps>();
   function handleRecipes() {
-    navigation.navigate("DetalhesReceita");
+    navigation.navigate("Stack", {
+      screen: "DetalhesReceita",
+    });
   }
 
   return (

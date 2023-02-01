@@ -1,11 +1,11 @@
 import { NavigationContainer } from "@react-navigation/native";
 import theme from "@theme/index";
-import { AppRoutes } from "./app.routes";
+import { AppBottomTab } from "./app.routes";
 
-export function Routes() {
+export function _Routes() {
   return (
     <NavigationContainer>
-      <AppRoutes />
+      <AppBottomTab />
     </NavigationContainer>
   );
 }

@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { AppState, StyleSheet, Text, View } from "react-native";
 import {
   useFonts,
   Roboto_400Regular,
@@ -10,9 +10,9 @@ import { ThemeProvider } from "styled-components";
 import { NavigationContainer } from "@react-navigation/native";
 import theme from "@theme/index";
 import { Loading } from "@components/Loading";
-import { AppRoutes } from "@routes/app.routes";
 import { AuthRoutes } from "@routes/auth.routes";
-import { Routes } from "@routes/index";
+import React from "react";
+import { RootStack } from "@routes/app.routes";
 export default function App() {
   const [fontsLoaded] = useFonts({
     Roboto_400Regular,
@@ -26,7 +26,7 @@ export default function App() {
           backgroundColor="transparent"
           translucent
         />
-        {fontsLoaded ? <AppRoutes /> : <Loading />}
+        {fontsLoaded ? <RootStack /> : <Loading />}
       </ThemeProvider>
     </NavigationContainer>
   );

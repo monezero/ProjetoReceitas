@@ -1,5 +1,4 @@
 import React from "react";
-import { NavigationContainer } from "react-navigation";
 import {
   createBottomTabNavigator,
   BottomTabNavigationProp,
@@ -8,25 +7,48 @@ import { Colors } from "react-native/Libraries/NewAppScreen";
 import { useTheme } from "styled-components";
 import { Platform, View } from "react-native";
 import { Recipes } from "@screens/Recipes";
+import { RecipeDetails } from "@screens/RecipeDetails";
+
 import { Entypo } from "@expo/vector-icons";
 import { Favorites } from "@screens/Favorites";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-type AppRoutes = {
+export type AppRoutes = {
   Receitas: undefined;
   Favoritos: undefined;
   Lista: undefined;
   Deposito: undefined;
   Perfil: undefined;
+  DetalhesReceita: undefined;
+  Root: undefined;
+  NestedDetalhesReceita: undefined;
+  Stack: undefined;
+  BottomTab: undefined;
 };
 
 export type AppNavigatorRoutesProps = BottomTabNavigationProp<AppRoutes>;
 
-const { Navigator, Screen } = createBottomTabNavigator<AppRoutes>();
+const Bottom = createBottomTabNavigator<AppRoutes>();
+const Root = createNativeStackNavigator<AppRoutes>();
+const Nested = createNativeStackNavigator<AppRoutes>();
 
-export function AppRoutes() {
+export function RootStack() {
+  return (
+    <Root.Navigator
+      screenOptions={{ headerShown: false }}
+      initialRouteName="Root"
+    >
+      <Root.Screen name="Root" component={BottomNav} />
+      <Root.Screen name="Stack" component={NestedStack} />
+    </Root.Navigator>
+  );
+}
+
+export function BottomNav() {
   const { COLORS, FONT_FAMILY } = useTheme();
   return (
-    <Navigator
+    <Bottom.Navigator
       screenOptions={{
         headerShown: false,
         tabBarLabelPosition: "below-icon",
@@ -48,7 +70,7 @@ export function AppRoutes() {
         },
       }}
     >
-      <Screen
+      <Bottom.Screen
         name="Receitas"
         component={Recipes}
         options={{
@@ -61,7 +83,7 @@ export function AppRoutes() {
           },
         }}
       />
-      <Screen
+      <Bottom.Screen
         name="Favoritos"
         component={Recipes}
         options={{
@@ -74,8 +96,7 @@ export function AppRoutes() {
           },
         }}
       />
-
-      <Screen
+      <Bottom.Screen
         name="Lista"
         component={Recipes}
         options={{
@@ -88,7 +109,7 @@ export function AppRoutes() {
           },
         }}
       />
-      <Screen
+      <Bottom.Screen
         name="Deposito"
         component={Recipes}
         options={{
@@ -101,7 +122,7 @@ export function AppRoutes() {
           },
         }}
       />
-      <Screen
+      <Bottom.Screen
         name="Perfil"
         component={Recipes}
         options={{
@@ -114,6 +135,44 @@ export function AppRoutes() {
           },
         }}
       />
-    </Navigator>
+    </Bottom.Navigator>
   );
+}
+
+export function NestedStack() {
+  return (
+    <Nested.Navigator
+      initialRouteName={"Root"}
+      screenOptions={{ headerShown: false }}
+    >
+      <Nested.Screen
+        name="Root"
+        component={Recipes}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Nested.Screen
+        name="NestedDetalhesReceita"
+        component={RecipeDetails}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Nested.Screen name="Receitas" component={Recipes} />
+      <Nested.Screen name="DetalhesReceita" component={RecipeDetails} />
+      <Nested.Screen name="Deposito" component={Recipes} />
+      <Nested.Screen name="Favoritos" component={Recipes} />
+      <Nested.Screen name="Lista" component={Recipes} />
+      <Nested.Screen name="Perfil" component={Recipes} />
+    </Nested.Navigator>
+  );
+}
+
+{
+  /* <Screen
+        name="DetalhesReceita"
+        component={RecipeDetails}
+        options={{ tabBarStyle: { display: "none" }, tabBarShowLabel: false }}
+      /> */
 }

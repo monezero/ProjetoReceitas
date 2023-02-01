@@ -30,7 +30,7 @@ export function SeeRecipes({ name, image, description, sort }: Recipes) {
   const [back, setBack] = useState(false);
   const navigation = useNavigation<AuthNavigatorRouteProps>();
   function leaveRecipes() {
-    navigation.navigate("Receitas");
+    navigation.goBack();
   }
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#f2f2f2" }}>
@@ -52,7 +52,7 @@ export function SeeRecipes({ name, image, description, sort }: Recipes) {
               name="chevron-thin-left"
               size={30}
               color="white"
-              onPress={leaveRecipes}
+              onPress={() => navigation.navigate("Root")}
             />
           </IconBack>
           <IconShare>
