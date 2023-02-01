@@ -142,7 +142,6 @@ export function BottomNav() {
 export function NestedStack() {
   return (
     <Nested.Navigator
-      initialRouteName={"Root"}
       screenOptions={{ headerShown: false }}
     >
       <Nested.Screen
