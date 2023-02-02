@@ -12,14 +12,13 @@ import { useState } from "react";
 import { View, Text } from "react-native";
 import { Row } from "./styles";
 import { FlatListRecipes } from "@components/Flatlist";
-import { FlatlistRecipesBreakfast } from "@components/SeeRecipes";
 export function Recipes() {
   const [sort, setSort] = useState("all");
   const data = RecipeList;
   return (
     <View style={{ alignItems: "center", justifyContent: "center" }}>
       <SearchBar
-        placeholder="Search recipes..."
+        placeholder="Procurar receitas"
         autoCorrect={false}
         autoCapitalize={"sentences"}
       ></SearchBar>

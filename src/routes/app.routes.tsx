@@ -35,10 +35,7 @@ const Nested = createNativeStackNavigator<AppRoutes>();
 
 export function RootStack() {
   return (
-    <Root.Navigator
-      screenOptions={{ headerShown: false }}
-      initialRouteName="Root"
-    >
+    <Root.Navigator screenOptions={{ headerShown: false }}>
       <Root.Screen name="Root" component={BottomNav} />
       <Root.Screen name="Stack" component={NestedStack} />
     </Root.Navigator>
@@ -141,16 +138,7 @@ export function BottomNav() {
 
 export function NestedStack() {
   return (
-    <Nested.Navigator
-      screenOptions={{ headerShown: false }}
-    >
-      <Nested.Screen
-        name="Root"
-        component={Recipes}
-        options={{
-          headerShown: false,
-        }}
-      />
+    <Nested.Navigator screenOptions={{ headerShown: false }}>
       <Nested.Screen
         name="NestedDetalhesReceita"
         component={RecipeDetails}

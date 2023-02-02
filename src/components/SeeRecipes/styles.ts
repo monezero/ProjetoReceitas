@@ -56,7 +56,7 @@ z-index: 5;
 `;
 
 export const RecipeContainer = styled.View`
-padding: 2px;
+padding: 12px;
  border-radius: 18px;
  border-color: ${theme.COLORS.GREEN};
  border-width: 5px;
@@ -118,7 +118,19 @@ z-index: 2;
 
 export const ContainerIcons = styled.View`
 flex-direction: row;
-margin-top: 6px;
+margin-top: 20px;
 justify-content: space-around;
-
 `;
+
+export const ContainerText = styled.View`
+flex-direction: row;
+margin-top: 3px;
+justify-content: space-around;
+`;
+
+export const MiniText = styled.Text`
+font-family: "Roboto_400Regular";
+font-size: 12px;
+color: ${theme.COLORS.GREEN};
+`
+

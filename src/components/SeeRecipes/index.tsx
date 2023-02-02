@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import {
   ContainerIcons,
   ContainerMore,
+  ContainerText,
   ContentMore,
   IconBack,
   IconHeartMore,
@@ -10,13 +11,14 @@ import {
   ImageMore,
   Materials,
   MaterialsTitle,
+  MiniText,
   RecipeContainer,
   TitleContainerMore,
   TitleMore,
   TitleStart,
 } from "./styles";
 import { Entypo } from "@expo/vector-icons";
-import { FlatList } from "react-native";
+import { FlatList, ScrollView } from "react-native";
 import { RecipesProps, RecipeVisual } from "@components/Flatlist";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Feather } from "@expo/vector-icons";
@@ -24,8 +26,15 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import { AuthNavigatorRouteProps } from "@routes/auth.routes";
 
-export function SeeRecipes({ name, image, description, sort }: Recipes) {
-  const data = RecipeList;
+export function SeeRecipes({
+  id,
+  name,
+  image,
+  recipe,
+  directions,
+  sort,
+}: Recipes) {
+  const data = RecipeList.find((data) => data.id === data.id);
   const [heart, setHeart] = useState(false);
   const [back, setBack] = useState(false);
   const navigation = useNavigation<AuthNavigatorRouteProps>();
@@ -35,7 +44,7 @@ export function SeeRecipes({ name, image, description, sort }: Recipes) {
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#f2f2f2" }}>
       <ContainerMore>
-        <ImageMore source={require("@assets/burger.png")} />
+        <ImageMore source={data?.image} />
         <ContentMore>
           <IconHeartMore>
             <Entypo
@@ -72,7 +81,7 @@ export function SeeRecipes({ name, image, description, sort }: Recipes) {
           )}
           {back && <IconHeartMore></IconHeartMore>}
           <TitleStart>
-            <TitleMore>{name}</TitleMore>
+            <TitleMore>{data?.name}</TitleMore>
             <TitleContainerMore
               colors={["transparent", "#2dc268"]}
               start={{ x: 1, y: 3 }}
@@ -81,45 +90,23 @@ export function SeeRecipes({ name, image, description, sort }: Recipes) {
           </TitleStart>
 
           <RecipeContainer>
+            <ScrollView></ScrollView>
             <MaterialsTitle>Receita</MaterialsTitle>
-            <Materials>
-              3 kg de carne moída (escolha uma carne magra e macia) {"\n"} 300 g
-              de bacon moído {"\n"} 1 ovo {"\n"} 3 colheres (sopa) de farinha de
-              trigo {"\n"} 3 colheres (sopa) de tempero caseiro: feito com alho,
-              sal, cebola, pimenta e cheiro-verde processados no liquidificador{" "}
-              {"\n"} 30 ml de água gelada
-            </Materials>
+            <Materials>{data?.recipe}</Materials>
             <MaterialsTitle>Preparo</MaterialsTitle>
-            <Materials>
-              Misture todos os ingredientes muito bem e amasse para que fique
-              tudo muito bem misturado {"\n"} Faça porções de 90 g a 100 g{" "}
-              {"\n"} Forre um plástico molhado em uma bancada e modele os
-              hambúrgueres utilizando um aro como base {"\n"} Faça um de cada
-              vez e retire o aro logo em seguida {"\n"} Forre uma assadeira de
-              metal com plástico, coloque os hambúrgueres e intercale camadas de
-              carne e plásticos (sem apertar) {"\n"} Faça no máximo 4 camadas
-              por forma e leve para congelar {"\n"} Retire do congelador, frite
-              ou asse e está pronto.
-            </Materials>
+            <Materials>{data?.directions}</Materials>
           </RecipeContainer>
         </ContentMore>
       </ContainerMore>
       <ContainerIcons>
         <Feather name="clock" size={30} color="#2dc268" />
+
         <MaterialCommunityIcons name="food-outline" size={30} color="#2dc268" />
       </ContainerIcons>
+      <ContainerText>
+        <MiniText>{data?.time}</MiniText>
+        <MiniText>{data?.portions}</MiniText>
+      </ContainerText>
     </SafeAreaView>
-  );
-}
-
-export function FlatlistRecipesBreakfast() {
-  return (
-    <FlatList
-      horizontal
-      showsHorizontalScrollIndicator={false}
-      keyExtractor={(item) => item.name}
-      data={FilterBreakfast}
-      renderItem={({ item }) => <SeeRecipes {...item} />}
-    />
   );
 }

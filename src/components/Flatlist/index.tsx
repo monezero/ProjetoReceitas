@@ -53,7 +53,14 @@ export const FlatListRecipes = (props: RecipesProps) => {
   );
 };
 
-export function RecipeVisual({ name, image, description, sort }: Recipes) {
+export function RecipeVisual({
+  id,
+  name,
+  image,
+  recipe,
+  directions,
+  sort,
+}: Recipes) {
   const [heart, setHeart] = useState(false);
   const [more, setMore] = useState(false);
   const navigation = useNavigation<AuthNavigatorRouteProps>();
