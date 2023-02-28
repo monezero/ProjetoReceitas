@@ -34,6 +34,9 @@ export function SeeRecipes({
   directions,
   sort,
 }: Recipes) {
+  const receitaSelecionada = ({ route }) => {
+    console.log(route.params.recipeList);
+  };
   const data = RecipeList.find((data) => data.id === data.id);
   const [heart, setHeart] = useState(false);
   const [back, setBack] = useState(false);

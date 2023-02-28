@@ -29,6 +29,7 @@ import {
   FlatList,
   View,
   Modal,
+  TouchableOpacity,
 } from "react-native";
 import { Entypo } from "@expo/vector-icons";
 import {
@@ -63,10 +64,11 @@ export function RecipeVisual({
 }: Recipes) {
   const [heart, setHeart] = useState(false);
   const [more, setMore] = useState(false);
-  const navigation = useNavigation<AuthNavigatorRouteProps>();
+  const navigation = useNavigation();
   function handleRecipes() {
     navigation.navigate("Stack", {
       screen: "DetalhesReceita",
+      RecipeList,
     });
   }
 
