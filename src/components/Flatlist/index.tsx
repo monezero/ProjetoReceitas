@@ -68,7 +68,7 @@ export function RecipeVisual({
   function handleRecipes() {
     navigation.navigate("Stack", {
       screen: "DetalhesReceita",
-      RecipeList,
+      receitaSelecionada: RecipeList,
     });
   }
 
